@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>kJS</title>
+	</head>
+	<body>
+		<script src="k.js"></script>
+		<script>
+			document.addEventListener('keydown', function(e){
+				e.stopPropagation();
+				e.preventDefault();
+
+				if(keymapper.isNumeric(e))
+					console.log('Numeric');
+
+				var keyCode = e.which || e.keyCode || e.charCode;
+				console.log(keyCode);
+
+			}, false);
+		</script>
+	</body>
+</html>

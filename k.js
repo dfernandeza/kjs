@@ -27,19 +27,17 @@
 		LeftArrow     : 37
 	};
 	// Here we create all the utility functions
-	(function(){
-		var key;
-		for(key in keymap){
-			if(keymap.hasOwnProperty(key)){
-				(function(k){
-					keymapper['is' + k] = function(e){
-						var keyCode = e.which || e.keyCode || e.charCode;
-						return (keyCode === keymap[k]);
-					};
-				})(key);
-			}
+	var key;
+	for(key in keymap){
+		if(keymap.hasOwnProperty(key)){
+			(function(k){
+				keymapper['is' + k] = function(e){
+					var keyCode = e.which || e.keyCode || e.charCode;
+					return (keyCode === keymap[k]);
+				};
+			})(key);
 		}
-	})();
+	}
 	keymapper.isNumeric = function(e){
 		var keyCode = e.which || e.keyCode || e.charCode;
 		return !isNaN(String.fromCharCode(keyCode) * 1);
